@@ -21,9 +21,9 @@ alt="npm version" height="18">
 </a>
 
 ES6 safeToString module. Converts a `Symbol` literal or object to `Symbol()`
-instead of throwing a `TypeError`.
+instead of throwing a `TypeError`. It's primary use is for logging/debugging.
 
-**Version**: 1.1.0  
+**Version**: 1.1.1  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  

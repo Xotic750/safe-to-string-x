@@ -1,6 +1,6 @@
 {
   "name": "safe-to-string-x",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "ES6 safeToString module.",
   "homepage": "https://github.com/Xotic750/safe-to-string-x",
   "author": {
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "es-abstract": "^1.4.3",
-    "has-symbol-support-x": "^1.0.0",
+    "has-symbol-support-x": "^1.0.1",
     "is-symbol": "^1.0.1"
   },
   "devDependencies": {

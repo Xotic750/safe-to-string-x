@@ -4,7 +4,7 @@
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
   es3:true, esnext:true, plusplus:true, maxparams:1, maxdepth:1,
-  maxstatements:6, maxcomplexity:3 */
+  maxstatements:7, maxcomplexity:3 */
 
 /*global expect, module, require, describe, xit, it, returnExports */
 
@@ -22,6 +22,14 @@
     safeToString = returnExports;
   }
 
+	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tostring
+	function twoString(argument) {
+		if (typeof argument === 'symbol') {
+			throw new TypeError('Cannot convert a Symbol value to a string');
+		}
+		return String(argument);
+	}
+
   describe('Basic tests', function () {
     it('should return a string for everything', function () {
       function fn() {}
@@ -29,6 +37,19 @@
           expected = values.map(String),
           actual = values.map(safeToString);
       expect(actual).toEqual(expected);
+    });
+
+    ifSymbolIteratorIt('should throw for Symbol', function () {
+      var sym = Symbol('foo');
+      expect(function () {
+        twoString(sym);
+      }).toThrow();
+      expect(function () {
+        twoString(Object(sym));
+      }).toThrow();
+      expect(function () {
+        twoString(Symbol.iterator);
+      }).toThrow();
     });
 
     ifSymbolIteratorIt('should return a string for Symbol', function () {
