@@ -21,7 +21,7 @@
  * </a>
  *
  * ES6 safeToString module. Converts a `Symbol` literal or object to `Symbol()`
- * or if that fails then `#<Symbol>` instead of throwing a `TypeError`.
+ * instead of throwing a `TypeError`.
  * @version 1.1.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
@@ -42,34 +42,33 @@
 ;(function () {
   'use strict';
 
-  var ES = require('es-abstract/es6'),
-    pToString, isSymbol;
+  var ES, pToString, isSymbol;
 
   if (require('has-symbol-support-x')) {
+    ES = require('es-abstract/es6');
     isSymbol = require('is-symbol');
     pToString = Symbol.prototype.toString;
+    /**
+     * The abstract operation `safeToString` converts a `Symbol` literal or
+     * object to `Symbol()` instead of throwing a `TypeError`.
+     *
+     * @param {*} value The value to convert to a string.
+     * @return {string} The converted value.
+     * @example
+     * var safeToString = require('safe-to-string-x');
+     *
+     * safeToString(); // 'undefined'
+     * safeToString(null); // 'null'
+     * safeToString('abc'); // 'abc'
+     * safeToString(true); // 'true'
+     * safeToString(Symbol('foo')); // 'Symbol(foo)'
+     * safeToString(Symbol.iterator); // 'Symbol(Symbol.iterator)'
+     * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
+     */
     module.exports = function safeToString(value) {
-      return isSymbol(value) ? ES.Call(pToString, value): ES.ToString(value);
+      return isSymbol(value) ? ES.Call(pToString, value): String(value);
     };
-    return;
+  } else {
+    module.exports = String;
   }
-  /**
-   * The abstract operation `safeToString` converts a `Symbol` literal or object
-   * to `Symbol()` or if that fails then `#<Symbol>` instead of throwing
-   * a `TypeError`.
-   *
-   * @param {*} value The value to convert to a string.
-   * @return {string} The converted value.
-   * @example
-   * var safeToString = require('safe-to-string-x');
-   *
-   * safeToString(); // 'undefined'
-   * safeToString(null); // 'null'
-   * safeToString('abc'); // 'abc'
-   * safeToString(true); // 'true'
-   * safeToString(Symbol('foo')); // 'Symbol(foo)'
-   * safeToString(Symbol.iterator); // 'Symbol(Symbol.iterator)'
-   * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
-   */
-  module.exports = ES.ToString;
 }());

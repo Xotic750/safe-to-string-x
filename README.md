@@ -21,19 +21,18 @@ alt="npm version" height="18">
 </a>
 
 ES6 safeToString module. Converts a `Symbol` literal or object to `Symbol()`
-or if that fails then `#<Symbol>` instead of throwing a `TypeError`.
+instead of throwing a `TypeError`.
 
 **Version**: 1.1.0  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
 <a name="exp_module_safe-to-string-x--module.exports"></a>
-### `module.exports` ⇒ <code>string</code> ⏏
-The abstract operation `safeToString` converts a `Symbol` literal or object
-to `Symbol()` or if that fails then `#<Symbol>` instead of throwing
-a `TypeError`.
+### `module.exports(value)` ⇒ <code>string</code> ⏏
+The abstract operation `safeToString` converts a `Symbol` literal or
+object to `Symbol()` instead of throwing a `TypeError`.
 
-**Kind**: Exported member  
+**Kind**: Exported function  
 **Returns**: <code>string</code> - The converted value.  
 
 | Param | Type | Description |
