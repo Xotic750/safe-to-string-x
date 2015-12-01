@@ -32,7 +32,10 @@
     });
 
     ifSymbolIteratorIt('should return a string for Symbol', function () {
-      expect(safeToString(Symbol.iterator)).toEqual('#<Symbol>');
+      var sym = Symbol('foo');
+      expect(safeToString(sym)).toBe('Symbol(foo)');
+      expect(safeToString(Object(sym))).toBe('Symbol(foo)');
+      expect(safeToString(Symbol.iterator)).toBe('Symbol(Symbol.iterator)');
     });
   });
 }());

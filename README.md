@@ -20,16 +20,18 @@ alt="devDependency status" height="18"/>
 alt="npm version" height="18">
 </a>
 
-ES6 safeToString module. Converts a `Symbol` to `#<Symbol>` instead of
-throwing.
+ES6 safeToString module. Converts a `Symbol` literal or object to `Symbol()`
+or if that fails then `#<Symbol>` instead of throwing a `TypeError`.
 
-**Version**: 1.0.0  
+**Version**: 1.1.0  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
 <a name="exp_module_safe-to-string-x--module.exports"></a>
 ### `module.exports(value)` ⇒ <code>string</code> ⏏
-Performs no operation but returns a constant `undefined` inherently.
+The abstract operation `safeToString` converts a `Symbol` literal or object
+to `Symbol()` or if that fails then `#<Symbol>` instead of throwing
+a `TypeError`.
 
 **Kind**: Exported function  
 **Returns**: <code>string</code> - The converted value.  
@@ -47,4 +49,5 @@ safeToString(null); // 'null'
 safeToString('abc'); // 'abc'
 safeToString(true); // 'true'
 safeToString(Symbol.iterator); // '#<Symbol>'
+safeToString(Object(Symbol.iterator)); // '#<Symbol>'
 ```
