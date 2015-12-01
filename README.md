@@ -28,12 +28,12 @@ or if that fails then `#<Symbol>` instead of throwing a `TypeError`.
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
 <a name="exp_module_safe-to-string-x--module.exports"></a>
-### `module.exports(value)` ⇒ <code>string</code> ⏏
+### `module.exports` ⇒ <code>string</code> ⏏
 The abstract operation `safeToString` converts a `Symbol` literal or object
 to `Symbol()` or if that fails then `#<Symbol>` instead of throwing
 a `TypeError`.
 
-**Kind**: Exported function  
+**Kind**: Exported member  
 **Returns**: <code>string</code> - The converted value.  
 
 | Param | Type | Description |
@@ -48,6 +48,7 @@ safeToString(); // 'undefined'
 safeToString(null); // 'null'
 safeToString('abc'); // 'abc'
 safeToString(true); // 'true'
-safeToString(Symbol.iterator); // '#<Symbol>'
-safeToString(Object(Symbol.iterator)); // '#<Symbol>'
+safeToString(Symbol('foo')); // 'Symbol(foo)'
+safeToString(Symbol.iterator); // 'Symbol(Symbol.iterator)'
+safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
 ```

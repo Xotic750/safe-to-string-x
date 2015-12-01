@@ -43,9 +43,16 @@
   'use strict';
 
   var ES = require('es-abstract/es6'),
-    pToString = Symbol.prototype.toString,
-    isSymbol = require('is-symbol');
+    pToString, isSymbol;
 
+  if (require('has-symbol-support-x')) {
+    isSymbol = require('is-symbol');
+    pToString = Symbol.prototype.toString;
+    module.exports = function safeToString(value) {
+      return isSymbol(value) ? ES.Call(pToString, value): ES.ToString(value);
+    };
+    return;
+  }
   /**
    * The abstract operation `safeToString` converts a `Symbol` literal or object
    * to `Symbol()` or if that fails then `#<Symbol>` instead of throwing
@@ -60,17 +67,9 @@
    * safeToString(null); // 'null'
    * safeToString('abc'); // 'abc'
    * safeToString(true); // 'true'
-   * safeToString(Symbol.iterator); // '#<Symbol>'
-   * safeToString(Object(Symbol.iterator)); // '#<Symbol>'
+   * safeToString(Symbol('foo')); // 'Symbol(foo)'
+   * safeToString(Symbol.iterator); // 'Symbol(Symbol.iterator)'
+   * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
    */
-  module.exports = function safeToString(value) {
-    if (isSymbol(value)) {
-      try {
-        return ES.Call(pToString, value);
-      } catch (ignore) {
-        return '#<Symbol>';
-      }
-    }
-    return ES.ToString(value);
-  };
+  module.exports = ES.ToString;
 }());
