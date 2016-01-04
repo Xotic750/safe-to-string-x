@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "es-abstract": "^1.5.0",
-    "has-symbol-support-x": "^1.0.2",
+    "has-symbol-support-x": "^1.0.3",
     "is-symbol": "^1.0.1"
   },
   "devDependencies": {
