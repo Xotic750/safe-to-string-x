@@ -29,6 +29,7 @@
     "url": "https://github.com/Xotic750/safe-to-string-x/issues"
   },
   "dependencies": {
+    "has-symbol-support-x": "^1.0.6",
     "is-symbol": "^1.0.1"
   },
   "devDependencies": {

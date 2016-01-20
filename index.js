@@ -62,7 +62,7 @@
 
   var $String = String;
   var isSymbol = require('is-symbol');
-  var pToString = Symbol.prototype.toString;
+  var pToString = require('has-symbol-support-x') && Symbol.prototype.toString;
 
   /**
    * The abstract operation `safeToString` converts a `Symbol` literal or
@@ -82,6 +82,6 @@
    * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
    */
   module.exports = function safeToString(value) {
-    return isSymbol(value) ? pToString.call(value): $String(value);
+    return pToString && isSymbol(value) ? pToString.call(value): $String(value);
   };
 }());
