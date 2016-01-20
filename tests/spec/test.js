@@ -11,9 +11,9 @@
 (function () {
   'use strict';
 
-  var hasSymbolIterator = typeof Symbol === 'function' &&
-      typeof Symbol.iterator === 'symbol',
-    ifSymbolIteratorIt = hasSymbolIterator ? it : xit,
+  var hasSymbol = typeof Symbol === 'function' &&
+      typeof Symbol() === 'symbol',
+    ifSymbolIt = hasSymbol ? it : xit,
     safeToString;
   if (typeof module === 'object' && module.exports) {
     require('es5-shim');
@@ -45,24 +45,10 @@
       expect(actual).toEqual(expected);
     });
 
-    ifSymbolIteratorIt('should throw for Symbol', function () {
-      var sym = Symbol('foo');
-      expect(function () {
-        twoString(sym);
-      }).toThrow();
-      expect(function () {
-        twoString(Object(sym));
-      }).toThrow();
-      expect(function () {
-        twoString(Symbol.iterator);
-      }).toThrow();
-    });
-
-    ifSymbolIteratorIt('should return a string for Symbol', function () {
+    ifSymbolIt('should return a string for Symbol', function () {
       var sym = Symbol('foo');
       expect(safeToString(sym)).toBe('Symbol(foo)');
       expect(safeToString(Object(sym))).toBe('Symbol(foo)');
-      expect(safeToString(Symbol.iterator)).toBe('Symbol(Symbol.iterator)');
     });
   });
 }());
