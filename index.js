@@ -52,8 +52,8 @@
 /*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:false, plusplus:true, maxparams:1, maxdepth:3,
-  maxstatements:8, maxcomplexity:4 */
+  es3:true, esnext:false, plusplus:true, maxparams:1, maxdepth:1,
+  maxstatements:4, maxcomplexity:2 */
 
 /*global module */
 

@@ -3,8 +3,8 @@
 /*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:true, plusplus:true, maxparams:1, maxdepth:1,
-  maxstatements:7, maxcomplexity:3 */
+  es3:false, esnext:true, plusplus:true, maxparams:1, maxdepth:2,
+  maxstatements:11, maxcomplexity:4 */
 
 /*global JSON:true, expect, module, require, describe, xit, it, returnExports */
 
@@ -27,14 +27,6 @@
   } else {
     safeToString = returnExports;
   }
-
-	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-tostring
-	function twoString(argument) {
-		if (typeof argument === 'symbol') {
-			throw new TypeError('Cannot convert a Symbol value to a string');
-		}
-		return String(argument);
-	}
 
   describe('Basic tests', function () {
     it('should return a string for everything', function () {
