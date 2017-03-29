@@ -27,7 +27,7 @@ instead of throwing a `TypeError`. Its primary use is for logging/debugging.
 Requires ES3 or above.
 
 **See**: [to-string-x](https://github.com/Xotic750/to-string-x)  
-**Version**: 1.2.1  
+**Version**: 1.3.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
