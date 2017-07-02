@@ -27,42 +27,35 @@
  *
  * @see {@link https://github.com/Xotic750/to-string-x|to-string-x}
  *
- * @version 1.3.0
+ * @version 1.4.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
  * @module safe-to-string-x
  */
 
-/* eslint strict: 1 */
+'use strict';
 
-/* global module */
+var isSymbol = require('is-symbol');
+var pToString = require('has-symbol-support-x') && Symbol.prototype.toString;
 
-;(function () { // eslint-disable-line no-extra-semi
-
-  'use strict';
-
-  var isSymbol = require('is-symbol');
-  var pToString = require('has-symbol-support-x') && Symbol.prototype.toString;
-
-  /**
-   * The abstract operation `safeToString` converts a `Symbol` literal or
-   * object to `Symbol()` instead of throwing a `TypeError`.
-   *
-   * @param {*} value The value to convert to a string.
-   * @return {string} The converted value.
-   * @example
-   * var safeToString = require('safe-to-string-x');
-   *
-   * safeToString(); // 'undefined'
-   * safeToString(null); // 'null'
-   * safeToString('abc'); // 'abc'
-   * safeToString(true); // 'true'
-   * safeToString(Symbol('foo')); // 'Symbol(foo)'
-   * safeToString(Symbol.iterator); // 'Symbol(Symbol.iterator)'
-   * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
-   */
-  module.exports = function safeToString(value) {
-    return pToString && isSymbol(value) ? pToString.call(value) : String(value);
-  };
-}());
+/**
+ * The abstract operation `safeToString` converts a `Symbol` literal or
+ * object to `Symbol()` instead of throwing a `TypeError`.
+ *
+ * @param {*} value - The value to convert to a string.
+ * @returns {string} The converted value.
+ * @example
+ * var safeToString = require('safe-to-string-x');
+ *
+ * safeToString(); // 'undefined'
+ * safeToString(null); // 'null'
+ * safeToString('abc'); // 'abc'
+ * safeToString(true); // 'true'
+ * safeToString(Symbol('foo')); // 'Symbol(foo)'
+ * safeToString(Symbol.iterator); // 'Symbol(Symbol.iterator)'
+ * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
+ */
+module.exports = function safeToString(value) {
+  return pToString && isSymbol(value) ? pToString.call(value) : String(value);
+};
