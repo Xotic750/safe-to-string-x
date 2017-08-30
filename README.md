@@ -24,7 +24,7 @@
 Like ES6 ToString but handles Symbols too.
 
 **See**: [to-string-x](https://github.com/Xotic750/to-string-x)  
-**Version**: 1.5.0  
+**Version**: 2.0.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  

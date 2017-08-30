@@ -1,7 +1,7 @@
 /**
  * @file Like ES6 ToString but handles Symbols too.
  * @see {@link https://github.com/Xotic750/to-string-x|to-string-x}
- * @version 1.5.0
+ * @version 2.0.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -11,7 +11,9 @@
 'use strict';
 
 var isSymbol = require('is-symbol');
-var pToString = require('has-symbol-support-x') && Symbol.prototype.toString;
+var toStr = require('to-string-x');
+var hasSymbols = require('has-symbol-support-x');
+var pToString = hasSymbols && Symbol.prototype.toString;
 
 /**
  * The abstract operation `safeToString` converts a `Symbol` literal or
@@ -31,5 +33,5 @@ var pToString = require('has-symbol-support-x') && Symbol.prototype.toString;
  * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
  */
 module.exports = function safeToString(value) {
-  return pToString && isSymbol(value) ? pToString.call(value) : String(value);
+  return hasSymbols && isSymbol(value) ? pToString.call(value) : toStr(value);
 };
