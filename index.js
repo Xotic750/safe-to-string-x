@@ -1,7 +1,7 @@
 /**
  * @file Like ES6 ToString but handles Symbols too.
  * @see {@link https://github.com/Xotic750/to-string-x|to-string-x}
- * @version 2.0.0
+ * @version 2.0.1
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
