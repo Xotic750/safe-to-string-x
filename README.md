@@ -52,4 +52,5 @@ safeToString(true); // 'true'
 safeToString(Symbol('foo')); // 'Symbol(foo)'
 safeToString(Symbol.iterator); // 'Symbol(Symbol.iterator)'
 safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
+safeToString(Object.create(null)); // TypeError
 ```

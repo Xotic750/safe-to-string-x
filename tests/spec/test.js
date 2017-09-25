@@ -40,6 +40,12 @@ describe('Basic tests', function () {
     expect(actual).toEqual(expected);
   });
 
+  it('should throw for Object.create(null)', function () {
+    expect(function () {
+      safeToString(Object.create(null));
+    }).toThrow();
+  });
+
   ifSymbolIt('should return a string for Symbol', function () {
     var sym = Symbol('foo');
     expect(safeToString(sym)).toBe('Symbol(foo)');
