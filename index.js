@@ -1,7 +1,7 @@
 /**
- * @file Like ES6 ToString but handles Symbols too.
+ * @file DEPRECATED: Moved to https://github.com/Xotic750/to-string-symbols-supported-x
  * @see {@link https://github.com/Xotic750/to-string-x|to-string-x}
- * @version 2.0.1
+ * @version 2.0.3
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -10,14 +10,14 @@
 
 'use strict';
 
-var isSymbol = require('is-symbol');
-var toStr = require('to-string-x');
-var hasSymbols = require('has-symbol-support-x');
-var pToString = hasSymbols && Symbol.prototype.toString;
-
 /**
- * The abstract operation `safeToString` converts a `Symbol` literal or
- * object to `Symbol()` instead of throwing a `TypeError`.
+ * DEPRECATED: Moved to https://github.com/Xotic750/to-string-symbols-supported-x
+ * to have a less confusing module name.
+ *
+ * The abstract operation ToString converts argument to a value of type String,
+ * however the specification states that if the argument is a Symbol then a
+ * 'TypeError' is thrown. This version also allows Symbols be converted to
+ * a string. Other uncoercible exotics will still throw though.
  *
  * @param {*} value - The value to convert to a string.
  * @returns {string} The converted value.
@@ -33,6 +33,4 @@ var pToString = hasSymbols && Symbol.prototype.toString;
  * safeToString(Object(Symbol.iterator)); // 'Symbol(Symbol.iterator)'
  * safeToString(Object.create(null)); // TypeError
  */
-module.exports = function safeToString(value) {
-  return hasSymbols && isSymbol(value) ? pToString.call(value) : toStr(value);
-};
+module.exports = require('to-string-symbols-supported-x');

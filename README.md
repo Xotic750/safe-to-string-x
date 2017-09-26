@@ -21,20 +21,25 @@
 <a name="module_safe-to-string-x"></a>
 
 ## safe-to-string-x
-Like ES6 ToString but handles Symbols too.
+DEPRECATED: Moved to https://github.com/Xotic750/to-string-symbols-supported-x
 
 **See**: [to-string-x](https://github.com/Xotic750/to-string-x)  
-**Version**: 2.0.1  
+**Version**: 2.0.3  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
 <a name="exp_module_safe-to-string-x--module.exports"></a>
 
-### `module.exports(value)` ⇒ <code>string</code> ⏏
-The abstract operation `safeToString` converts a `Symbol` literal or
-object to `Symbol()` instead of throwing a `TypeError`.
+### `module.exports` ⇒ <code>string</code> ⏏
+DEPRECATED: Moved to https://github.com/Xotic750/to-string-symbols-supported-x
+to have a less confusing module name.
 
-**Kind**: Exported function  
+The abstract operation ToString converts argument to a value of type String,
+however the specification states that if the argument is a Symbol then a
+'TypeError' is thrown. This version also allows Symbols be converted to
+a string. Other uncoercible exotics will still throw though.
+
+**Kind**: Exported member  
 **Returns**: <code>string</code> - The converted value.  
 
 | Param | Type | Description |
