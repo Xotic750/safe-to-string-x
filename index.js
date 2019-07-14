@@ -1,5 +1,5 @@
 /**
- * @file DEPRECATED: Moved to https://github.com/Xotic750/to-string-symbols-supported-x.
+ * @file DEPRECATED: Moved to https://github.com/Xotic750/to-string-symbols-supported-x
  * @see {@link https://github.com/Xotic750/to-string-x|to-string-x}
  * @version 2.0.3
  * @author Xotic750 <Xotic750@gmail.com>
@@ -7,6 +7,8 @@
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
  * @module safe-to-string-x
  */
+
+'use strict';
 
 /**
  * DEPRECATED: Moved to https://github.com/Xotic750/to-string-symbols-supported-x
