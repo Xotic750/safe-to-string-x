@@ -5,7 +5,7 @@
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module to-string-symbols-supported-x
+ * @module safe-to-string-x
  */
 
 /**
@@ -20,7 +20,7 @@
  * @param {*} value - The value to convert to a string.
  * @returns {string} The converted value.
  * @example
- * var safeToString = require('to-string-symbols-supported-x');
+ * var safeToString = require('safe-to-string-x');
  *
  * safeToString(); // 'undefined'
  * safeToString(null); // 'null'
